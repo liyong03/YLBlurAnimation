@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StackViewController : UIViewController
+@class StackViewController;
+@protocol StackViewControllerDelegate <NSObject>
 
+- (void)cancelViewController:(StackViewController*)viewController;
+
+@end
+
+@interface StackViewController : UIViewController
+@property (nonatomic, weak) id<StackViewControllerDelegate> delegate;
 @end

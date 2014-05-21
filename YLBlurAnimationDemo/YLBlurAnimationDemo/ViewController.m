@@ -9,8 +9,9 @@
 #import "ViewController.h"
 #import "UIImage+BoxBlur.h"
 #import "StackViewController.h"
+#import "YLBlurAnimation.h"
 
-@interface ViewController ()
+@interface ViewController () <UIViewControllerTransitioningDelegate, StackViewControllerDelegate>
 @property (nonatomic, assign) BOOL isBlured;
 @property (nonatomic, strong) UIImageView* blurView;
 @end
@@ -21,6 +22,8 @@
     UIImage* _screenShot;
     
     BOOL _isBlured;
+    
+    YLBlurAnimation* _animation;
 }
 
 - (void)viewDidLoad
@@ -29,6 +32,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     NSString* str = nil;
     [str UTF8String];
+    
+    _animation = [[YLBlurAnimation alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,8 +103,24 @@
 
 - (IBAction)navigation:(id)sender {
     StackViewController* stackVC = [[StackViewController alloc] initWithNibName:nil bundle:nil];
+    stackVC.delegate = self;
     UINavigationController* nv = [[UINavigationController alloc] initWithRootViewController:stackVC];
+    nv.transitioningDelegate = self;
     [self presentViewController:nv animated:YES completion:nil];
+}
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    _animation.isForward = YES;
+    return _animation;
+}
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    _animation.isForward = NO;
+    return _animation;
+}
+
+- (void)cancelViewController:(StackViewController *)viewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

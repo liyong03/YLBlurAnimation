@@ -42,12 +42,21 @@
         _bigLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.navigationController.viewControllers.count];
     }
     
+    if (self.navigationController.viewControllers.count == 1) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel:)];
+    }
+    
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 500, 320, 50);
     [button setTitle:@"Enter" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:button];
     [button addTarget:self action:@selector(enter:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)cancel:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(cancelViewController:)])
+        [self.delegate cancelViewController:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,6 +77,7 @@
                                    animationControllerForOperation:(UINavigationControllerOperation)operation
                                                 fromViewController:(UIViewController *)fromVC
                                                   toViewController:(UIViewController *)toVC {
+    _blurAnimation.isForward = (operation==UINavigationControllerOperationPush);
     return _blurAnimation;
 }
 @end

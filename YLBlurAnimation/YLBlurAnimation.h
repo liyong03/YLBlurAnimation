@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface YLBlurAnimation : NSObject<UIViewControllerAnimatedTransitioning>
-
+@property (nonatomic, assign) BOOL isForward;
 @end
