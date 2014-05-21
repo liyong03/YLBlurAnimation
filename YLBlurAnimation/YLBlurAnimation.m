@@ -8,17 +8,21 @@
 
 #import "YLBlurAnimation.h"
 #import "UIImage+BoxBlur.h"
+#import "RSTimingFunction.h"
 
-#define BLUR_DURATION 0.3
+
+#define BLUR_DURATION 0.3f
 
 @implementation YLBlurAnimation {
-    float              _time;
-    CADisplayLink     *_link;
-    UIImage           *_screenShot;
-    UIImageView       *_blurView;
+    float               _time;
+    RSTimingFunction    *_outTimingFunc;
+    RSTimingFunction    *_inTimingFunc;
+    CADisplayLink       *_link;
+    UIImage             *_screenShot;
+    UIImageView         *_blurView;
     
-    UIViewController  *_toViewController;
-    id <UIViewControllerContextTransitioning> _transitionContext;
+    UIViewController    *_toViewController;
+    id <UIViewControllerContextTransitioning>   _transitionContext;
 }
 
 //BouncePresentAnimation.m
@@ -41,29 +45,18 @@
     // 3. Add toVC's view to containerView
     UIView *containerView = [transitionContext containerView];
     
-    //  // 4. Do animate now
-    //  NSTimeInterval duration = [self transitionDuration:transitionContext];
-    //  [UIView animateWithDuration:duration
-    //                        delay:0.0
-    //       usingSpringWithDamping:0.6
-    //        initialSpringVelocity:0.0
-    //                      options:UIViewAnimationOptionCurveLinear
-    //                   animations:^{
-    //                     toVC.view.frame = finalFrame;
-    //                   } completion:^(BOOL finished) {
-    //                     // 5. Tell context that we completed.
-    //                     [transitionContext completeTransition:YES];
-    //                   }];
-    
-    
+    // get screenshot of out view
     UIGraphicsBeginImageContext(fromVC.view.bounds.size);
     [fromVC.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     
-    NSData *imageAsData = UIImageJPEGRepresentation(viewImage, 0.01);
+    NSData *imageAsData = UIImageJPEGRepresentation(viewImage, 0.001);
     viewImage = [UIImage imageWithData:imageAsData];
+    
+    _outTimingFunc = [RSTimingFunction timingFunctionWithName:kRSTimingFunctionEaseIn];
+    _inTimingFunc = [RSTimingFunction timingFunctionWithName:kRSTimingFunctionEaseIn];
     
     _blurView = [[UIImageView alloc] initWithFrame:containerView.bounds];
     [containerView addSubview:_blurView];
@@ -97,10 +90,12 @@
         NSLog(@"dur = %f", _link.duration);
         NSLog(@"stamp = %f", _link.timestamp);
         float fb = _time/BLUR_DURATION;
-        _blurView.image = [_screenShot uie_boxblurImageWithBlur:fb];
-        _toViewController.view.alpha = fb*fb;
+        float outP = [_outTimingFunc valueForX:fb];
+        _blurView.image = [_screenShot uie_boxblurImageWithBlur:outP];
+        float inP = [_inTimingFunc valueForX:fb];
+        _toViewController.view.alpha = inP;
         //_toViewController.view.transform = CGAffineTransformMakeScale(2-fb, 2-fb);
-        _blurView.transform = CGAffineTransformMakeScale(1+0.3f*fb, 1+0.3f*fb);
+        //_blurView.transform = CGAffineTransformMakeScale(1+0.3f*fb, 1+0.3f*fb);
     }
 }
 

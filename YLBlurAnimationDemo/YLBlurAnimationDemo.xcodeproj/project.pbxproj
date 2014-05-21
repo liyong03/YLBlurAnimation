@@ -12,6 +12,8 @@
 		4E7FB5E8192BAC0900DD1889 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB5E4192BAC0900DD1889 /* UIImage+BoxBlur.m */; };
 		4E7FB5E9192BAC0900DD1889 /* YLBlurAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB5E6192BAC0900DD1889 /* YLBlurAnimation.m */; };
 		4E7FB5EA192BAC0900DD1889 /* YLBlurAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB5E6192BAC0900DD1889 /* YLBlurAnimation.m */; };
+		4E7FB5F1192C4FE800DD1889 /* RSTimingFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB5F0192C4FE800DD1889 /* RSTimingFunction.m */; };
+		4E7FB5F2192C4FE800DD1889 /* RSTimingFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB5F0192C4FE800DD1889 /* RSTimingFunction.m */; };
 		4EE6EFA81905195C0087B173 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6EFA71905195C0087B173 /* Foundation.framework */; };
 		4EE6EFAA1905195C0087B173 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6EFA91905195C0087B173 /* CoreGraphics.framework */; };
 		4EE6EFAC1905195C0087B173 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6EFAB1905195C0087B173 /* UIKit.framework */; };
@@ -46,6 +48,8 @@
 		4E7FB5E4192BAC0900DD1889 /* UIImage+BoxBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxBlur.m"; sourceTree = "<group>"; };
 		4E7FB5E5192BAC0900DD1889 /* YLBlurAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLBlurAnimation.h; sourceTree = "<group>"; };
 		4E7FB5E6192BAC0900DD1889 /* YLBlurAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLBlurAnimation.m; sourceTree = "<group>"; };
+		4E7FB5EF192C4FE800DD1889 /* RSTimingFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTimingFunction.h; sourceTree = "<group>"; };
+		4E7FB5F0192C4FE800DD1889 /* RSTimingFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTimingFunction.m; sourceTree = "<group>"; };
 		4EE6EFA41905195C0087B173 /* YLBlurAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLBlurAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE6EFA71905195C0087B173 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4EE6EFA91905195C0087B173 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,6 +99,8 @@
 		4E7FB5E2192BAC0900DD1889 /* YLBlurAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				4E7FB5EF192C4FE800DD1889 /* RSTimingFunction.h */,
+				4E7FB5F0192C4FE800DD1889 /* RSTimingFunction.m */,
 				4E7FB5E3192BAC0900DD1889 /* UIImage+BoxBlur.h */,
 				4E7FB5E4192BAC0900DD1889 /* UIImage+BoxBlur.m */,
 				4E7FB5E5192BAC0900DD1889 /* YLBlurAnimation.h */,
@@ -284,6 +290,7 @@
 				4E7FB5E9192BAC0900DD1889 /* YLBlurAnimation.m in Sources */,
 				4EE6EFB81905195C0087B173 /* AppDelegate.m in Sources */,
 				4E7FB5E7192BAC0900DD1889 /* UIImage+BoxBlur.m in Sources */,
+				4E7FB5F1192C4FE800DD1889 /* RSTimingFunction.m in Sources */,
 				4EE6EFB41905195C0087B173 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E7FB5F2192C4FE800DD1889 /* RSTimingFunction.m in Sources */,
 				4E7FB5E8192BAC0900DD1889 /* UIImage+BoxBlur.m in Sources */,
 				4EE6EFD61905195C0087B173 /* YLBlurAnimationDemoTests.m in Sources */,
 				4E7FB5EA192BAC0900DD1889 /* YLBlurAnimation.m in Sources */,
