@@ -9,9 +9,12 @@
 #import "YLBlurAnimation.h"
 #import "UIImage+BoxBlur.h"
 #import "RSTimingFunction.h"
+#import "UIImage+ImageEffects.h"
 
 
 #define BLUR_DURATION 0.3f
+
+#define USE_BOX
 
 @implementation YLBlurAnimation {
     float               _time;
@@ -64,10 +67,10 @@
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    
+#ifdef USE_BOX
     NSData *imageAsData = UIImageJPEGRepresentation(viewImage, 0.5);
     viewImage = [UIImage imageWithData:imageAsData];
-    
+#endif
     
     // get screenshot of in view
     UIGraphicsBeginImageContext(toVC.view.bounds.size);
@@ -75,9 +78,10 @@
     UIImage *toViewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    
+#ifdef USE_BOX
     imageAsData = UIImageJPEGRepresentation(toViewImage, 0.5);
     toViewImage = [UIImage imageWithData:imageAsData];
+#endif
     
     _outTimingFunc = [RSTimingFunction timingFunctionWithName:kRSTimingFunctionEaseIn];
     _inTimingFunc = [RSTimingFunction timingFunctionWithName:kRSTimingFunctionEaseIn];
@@ -130,24 +134,39 @@
         float inP = [_inTimingFunc valueForX:fb];
         if (self.isForward) {
             // old view
+#ifdef USE_BOX
             _blurView.image = [_screenShot uie_boxblurImageWithBlur:outP];
+#else
+            _blurView.image = [_screenShot applyBlurEffectWithRadius:outP*40 reflectImage:NO];
+#endif
             
             // new view
             float scale = 1.0 + 0.2*(1-inP);
             NSLog(@"progress = %f, scale = %f", inP, scale);
+#ifdef USE_BOX
             _inBlurView.image = [_inScreenShot uie_boxblurImageWithBlur:1-inP];
+#else
+            _inBlurView.image = [_inScreenShot applyBlurEffectWithRadius:40*(1-inP) reflectImage:NO];
+#endif
             _inBlurView.alpha = inP;
             _inBlurView.transform = CGAffineTransformMakeScale(scale, scale);
         } else {
             // old view
+#ifdef USE_BOX
             _blurView.image = [_screenShot uie_boxblurImageWithBlur:outP];
+#else
+            _blurView.image = [_screenShot applyBlurEffectWithRadius:40*outP reflectImage:NO];
+#endif
             float scale = 1.0 + 0.2*(outP);
             _blurView.transform = CGAffineTransformMakeScale(scale, scale);
             _blurView.alpha = 1-outP;
             
             // new view
+#ifdef USE_BOX
             _inBlurView.image = [_inScreenShot uie_boxblurImageWithBlur:1-inP];
-            
+#else
+            _inBlurView.image = [_inScreenShot applyBlurEffectWithRadius:40*(1-inP) reflectImage:NO];
+#endif
         }
     }
 }

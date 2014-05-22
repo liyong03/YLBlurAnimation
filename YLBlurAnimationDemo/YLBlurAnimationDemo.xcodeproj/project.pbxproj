@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E68E4F1192E3B910005CF0B /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E68E4F0192E3B910005CF0B /* UIImage+ImageEffects.m */; };
+		4E68E4F2192E3B910005CF0B /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E68E4F0192E3B910005CF0B /* UIImage+ImageEffects.m */; };
 		4E7FB5DE192B553500DD1889 /* StackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB5DD192B553500DD1889 /* StackViewController.m */; };
 		4E7FB5E7192BAC0900DD1889 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB5E4192BAC0900DD1889 /* UIImage+BoxBlur.m */; };
 		4E7FB5E8192BAC0900DD1889 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB5E4192BAC0900DD1889 /* UIImage+BoxBlur.m */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E68E4EF192E3B910005CF0B /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		4E68E4F0192E3B910005CF0B /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		4E7FB5DC192B553500DD1889 /* StackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackViewController.h; sourceTree = "<group>"; };
 		4E7FB5DD192B553500DD1889 /* StackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackViewController.m; sourceTree = "<group>"; };
 		4E7FB5E3192BAC0900DD1889 /* UIImage+BoxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxBlur.h"; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 				4E7FB5F0192C4FE800DD1889 /* RSTimingFunction.m */,
 				4E7FB5E3192BAC0900DD1889 /* UIImage+BoxBlur.h */,
 				4E7FB5E4192BAC0900DD1889 /* UIImage+BoxBlur.m */,
+				4E68E4EF192E3B910005CF0B /* UIImage+ImageEffects.h */,
+				4E68E4F0192E3B910005CF0B /* UIImage+ImageEffects.m */,
 				4E7FB5E5192BAC0900DD1889 /* YLBlurAnimation.h */,
 				4E7FB5E6192BAC0900DD1889 /* YLBlurAnimation.m */,
 			);
@@ -285,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E68E4F1192E3B910005CF0B /* UIImage+ImageEffects.m in Sources */,
 				4E7FB5DE192B553500DD1889 /* StackViewController.m in Sources */,
 				4EE6EFC11905195C0087B173 /* ViewController.m in Sources */,
 				4E7FB5E9192BAC0900DD1889 /* YLBlurAnimation.m in Sources */,
@@ -300,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E7FB5F2192C4FE800DD1889 /* RSTimingFunction.m in Sources */,
+				4E68E4F2192E3B910005CF0B /* UIImage+ImageEffects.m in Sources */,
 				4E7FB5E8192BAC0900DD1889 /* UIImage+BoxBlur.m in Sources */,
 				4EE6EFD61905195C0087B173 /* YLBlurAnimationDemoTests.m in Sources */,
 				4E7FB5EA192BAC0900DD1889 /* YLBlurAnimation.m in Sources */,
