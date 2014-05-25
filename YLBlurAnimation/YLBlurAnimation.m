@@ -63,23 +63,25 @@
     
     // get screenshot of out view
     UIGraphicsBeginImageContext(fromVC.view.bounds.size);
+    //UIGraphicsBeginImageContextWithOptions(fromVC.view.bounds.size, fromVC.view.opaque, 0.0);
     [fromVC.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
 #ifdef USE_BOX
-    NSData *imageAsData = UIImageJPEGRepresentation(viewImage, 0.5);
+    NSData *imageAsData = UIImageJPEGRepresentation(viewImage, 0.9);
     viewImage = [UIImage imageWithData:imageAsData];
 #endif
     
     // get screenshot of in view
     UIGraphicsBeginImageContext(toVC.view.bounds.size);
+    //UIGraphicsBeginImageContextWithOptions(toVC.view.bounds.size, toVC.view.opaque, 0.0);
     [toVC.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *toViewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
 #ifdef USE_BOX
-    imageAsData = UIImageJPEGRepresentation(toViewImage, 0.5);
+    imageAsData = UIImageJPEGRepresentation(toViewImage, 0.9);
     toViewImage = [UIImage imageWithData:imageAsData];
 #endif
     
