@@ -10,11 +10,13 @@
 #import "UIImage+BoxBlur.h"
 #import "RSTimingFunction.h"
 #import "UIImage+ImageEffects.h"
+#import "UIImage+CIBlur.h"
 
 
 #define BLUR_DURATION 0.3f
 
 #define USE_BOX
+#define USE_CI
 
 @implementation YLBlurAnimation {
     float               _time;
@@ -138,6 +140,8 @@
             // old view
 #ifdef USE_BOX
             _blurView.image = [_screenShot uie_boxblurImageWithBlur:outP];
+#elif defined USE_CI
+            _blurView.image = [_screenShot bluredImageWithRadius:outP*10];
 #else
             _blurView.image = [_screenShot applyBlurEffectWithRadius:outP*40 reflectImage:NO];
 #endif
@@ -147,6 +151,8 @@
             NSLog(@"progress = %f, scale = %f", inP, scale);
 #ifdef USE_BOX
             _inBlurView.image = [_inScreenShot uie_boxblurImageWithBlur:1-inP];
+#elif defined USE_CI
+            _inBlurView.image = [_inScreenShot bluredImageWithRadius:10*(1-inP)];
 #else
             _inBlurView.image = [_inScreenShot applyBlurEffectWithRadius:40*(1-inP) reflectImage:NO];
 #endif
@@ -156,6 +162,8 @@
             // old view
 #ifdef USE_BOX
             _blurView.image = [_screenShot uie_boxblurImageWithBlur:outP];
+#elif defined USE_CI
+            _blurView.image = [_screenShot bluredImageWithRadius:10*outP];
 #else
             _blurView.image = [_screenShot applyBlurEffectWithRadius:40*outP reflectImage:NO];
 #endif
@@ -166,6 +174,8 @@
             // new view
 #ifdef USE_BOX
             _inBlurView.image = [_inScreenShot uie_boxblurImageWithBlur:1-inP];
+#elif defined USE_CI
+            _inBlurView.image = [_inScreenShot bluredImageWithRadius:10*(1-inP)];
 #else
             _inBlurView.image = [_inScreenShot applyBlurEffectWithRadius:40*(1-inP) reflectImage:NO];
 #endif

@@ -16,6 +16,9 @@
 		4E7FB5EA192BAC0900DD1889 /* YLBlurAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB5E6192BAC0900DD1889 /* YLBlurAnimation.m */; };
 		4E7FB5F1192C4FE800DD1889 /* RSTimingFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB5F0192C4FE800DD1889 /* RSTimingFunction.m */; };
 		4E7FB5F2192C4FE800DD1889 /* RSTimingFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB5F0192C4FE800DD1889 /* RSTimingFunction.m */; };
+		4ED79525194899DE00CEC759 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED79524194899DE00CEC759 /* CoreImage.framework */; };
+		4ED7952819489AF400CEC759 /* UIImage+CIBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED7952719489AF400CEC759 /* UIImage+CIBlur.m */; };
+		4ED7952919489AF400CEC759 /* UIImage+CIBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED7952719489AF400CEC759 /* UIImage+CIBlur.m */; };
 		4EE6EFA81905195C0087B173 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6EFA71905195C0087B173 /* Foundation.framework */; };
 		4EE6EFAA1905195C0087B173 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6EFA91905195C0087B173 /* CoreGraphics.framework */; };
 		4EE6EFAC1905195C0087B173 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6EFAB1905195C0087B173 /* UIKit.framework */; };
@@ -54,6 +57,9 @@
 		4E7FB5E6192BAC0900DD1889 /* YLBlurAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLBlurAnimation.m; sourceTree = "<group>"; };
 		4E7FB5EF192C4FE800DD1889 /* RSTimingFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTimingFunction.h; sourceTree = "<group>"; };
 		4E7FB5F0192C4FE800DD1889 /* RSTimingFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTimingFunction.m; sourceTree = "<group>"; };
+		4ED79524194899DE00CEC759 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		4ED7952619489AF400CEC759 /* UIImage+CIBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CIBlur.h"; sourceTree = "<group>"; };
+		4ED7952719489AF400CEC759 /* UIImage+CIBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CIBlur.m"; sourceTree = "<group>"; };
 		4EE6EFA41905195C0087B173 /* YLBlurAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLBlurAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE6EFA71905195C0087B173 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4EE6EFA91905195C0087B173 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -81,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ED79525194899DE00CEC759 /* CoreImage.framework in Frameworks */,
 				4EE6EFAA1905195C0087B173 /* CoreGraphics.framework in Frameworks */,
 				4EE6EFAC1905195C0087B173 /* UIKit.framework in Frameworks */,
 				4EE6EFA81905195C0087B173 /* Foundation.framework in Frameworks */,
@@ -111,6 +118,8 @@
 				4E68E4F0192E3B910005CF0B /* UIImage+ImageEffects.m */,
 				4E7FB5E5192BAC0900DD1889 /* YLBlurAnimation.h */,
 				4E7FB5E6192BAC0900DD1889 /* YLBlurAnimation.m */,
+				4ED7952619489AF400CEC759 /* UIImage+CIBlur.h */,
+				4ED7952719489AF400CEC759 /* UIImage+CIBlur.m */,
 			);
 			name = YLBlurAnimation;
 			path = ../YLBlurAnimation;
@@ -139,6 +148,7 @@
 		4EE6EFA61905195C0087B173 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ED79524194899DE00CEC759 /* CoreImage.framework */,
 				4EE6EFA71905195C0087B173 /* Foundation.framework */,
 				4EE6EFA91905195C0087B173 /* CoreGraphics.framework */,
 				4EE6EFAB1905195C0087B173 /* UIKit.framework */,
@@ -292,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E68E4F1192E3B910005CF0B /* UIImage+ImageEffects.m in Sources */,
+				4ED7952819489AF400CEC759 /* UIImage+CIBlur.m in Sources */,
 				4E7FB5DE192B553500DD1889 /* StackViewController.m in Sources */,
 				4EE6EFC11905195C0087B173 /* ViewController.m in Sources */,
 				4E7FB5E9192BAC0900DD1889 /* YLBlurAnimation.m in Sources */,
@@ -310,6 +321,7 @@
 				4E68E4F2192E3B910005CF0B /* UIImage+ImageEffects.m in Sources */,
 				4E7FB5E8192BAC0900DD1889 /* UIImage+BoxBlur.m in Sources */,
 				4EE6EFD61905195C0087B173 /* YLBlurAnimationDemoTests.m in Sources */,
+				4ED7952919489AF400CEC759 /* UIImage+CIBlur.m in Sources */,
 				4E7FB5EA192BAC0900DD1889 /* YLBlurAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
