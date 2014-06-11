@@ -18,11 +18,12 @@
                                       keysAndValues:kCIInputImageKey, ciImage, @"inputRadius", @(radius), nil];
         CIImage* resultImage = filter.outputImage;
         
-        CIContext *context = [CIContext contextWithOptions:nil];
-        CGImageRef outImage = [context createCGImage:resultImage fromRect:[resultImage extent]];
-        UIImage* img = [UIImage imageWithCGImage: outImage];
-        CFRelease(outImage);
-        return img;
+        //CIContext *context = [CIContext contextWithOptions:nil];
+        //CGImageRef outImage = [context createCGImage:resultImage fromRect:[resultImage extent]];
+        //UIImage* img = [UIImage imageWithCGImage: outImage];
+        //CFRelease(outImage);
+        //return img;
+        return [UIImage imageWithCIImage:resultImage];
     }
 }
 

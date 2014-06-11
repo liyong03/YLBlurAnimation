@@ -15,7 +15,7 @@
 
 #define BLUR_DURATION 0.3f
 
-#define USE_BOX
+//#define USE_BOX
 #define USE_CI
 
 @implementation YLBlurAnimation {
